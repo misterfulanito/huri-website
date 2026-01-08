@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+  <!-- Minimalist Open Book Icon -->
+  <path d="M20 8C15 8 12 10 8 10V32C12 32 15 30 20 30C25 30 28 32 32 32V10C28 10 25 8 20 8Z" fill="#202122"/>
+  <path d="M20 8V30" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M8 10C8 10 10 11 12 11C14 11 16 10 20 10" stroke="#ffffff" stroke-width="1" fill="none"/>
+  <path d="M32 10C32 10 30 11 28 11C26 11 24 10 20 10" stroke="#ffffff" stroke-width="1" fill="none"/>
+</svg>

@@ -1,26 +1,5 @@
 /* Wikipedia-Style Portfolio - Global Styles */
-
-:root {
-  /* Wikipedia Color Palette */
-  --color-background: #ffffff;
-  --color-text-primary: #202122;
-  --color-link: #0645ad;
-  --color-link-visited: #0b0080;
-  --color-border: #a2a9b1;
-  --color-sidebar-bg: #f8f9fa;
-  --color-hover: #eaecf0;
-
-  /* Typography */
-  --font-serif: Georgia, serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-}
+@import './wikipedia-theme.css';
 
 * {
   box-sizing: border-box;
@@ -36,7 +15,7 @@ body {
 
 body {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: var(--font-size-body);
   line-height: 1.6;
   color: var(--color-text-primary);
   background-color: var(--color-background);
@@ -54,19 +33,19 @@ h6 {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: var(--font-size-h1);
   margin-bottom: 0.25em;
 }
 
 h2 {
-  font-size: 21px;
+  font-size: var(--font-size-h2);
   margin-bottom: 0.5em;
   padding-bottom: 0.25em;
   border-bottom: 1px solid var(--color-border);
 }
 
 h3 {
-  font-size: 17px;
+  font-size: var(--font-size-h3);
   margin-bottom: 0.5em;
 }
 
@@ -101,4 +80,24 @@ img {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Main Layout */
+.page-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: var(--content-padding);
+}
+
+/* Mobile-first responsive */
+@media (min-width: 768px) {
+  .page-container {
+    padding-left: var(--sidebar-width);
+  }
 }

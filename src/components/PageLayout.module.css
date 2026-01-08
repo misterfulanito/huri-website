@@ -1,0 +1,28 @@
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  flex: 1;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: var(--content-padding);
+  width: 100%;
+}
+
+/* Desktop: add left margin for sidebar */
+@media (min-width: 769px) {
+  .mainContent {
+    margin-left: var(--sidebar-width);
+    margin-right: auto;
+  }
+}
+
+/* Mobile: full width */
+@media (max-width: 768px) {
+  .mainContent {
+    padding: var(--spacing-md);
+  }
+}
