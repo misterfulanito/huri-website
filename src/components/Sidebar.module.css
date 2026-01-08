@@ -4,8 +4,7 @@
   left: 0;
   width: var(--sidebar-width);
   height: calc(100vh - 60px);
-  background-color: var(--color-sidebar-bg);
-  border-right: 1px solid var(--color-border);
+  background-color: transparent;
   overflow-y: auto;
   padding: var(--spacing-md);
   z-index: 50;
