@@ -1,7 +1,13 @@
 'use client';
 
-import { Chrono } from 'react-chrono';
+import dynamic from 'next/dynamic';
 import styles from './Experience.module.css';
+
+// Dynamically import Chrono with SSR disabled to avoid DOM manipulation errors
+const Chrono = dynamic(
+  () => import('react-chrono').then((mod) => mod.Chrono),
+  { ssr: false }
+);
 
 interface ExperienceItem {
   company: string;
