@@ -1,0 +1,165 @@
+.section {
+  padding-top: 2rem;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h2);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.intro {
+  margin-bottom: 2rem;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h3);
+  margin: 0 0 1.5rem 0;
+  color: var(--color-text-primary);
+}
+
+/* Contact Methods */
+.methodList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.methodItem {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-sidebar-bg);
+  transition: background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.methodItem:hover {
+  background-color: var(--color-hover);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.methodIcon {
+  color: var(--color-link);
+  flex-shrink: 0;
+}
+
+.methodContent {
+  flex: 1;
+}
+
+.methodLabel {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.methodValue {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--color-link);
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+}
+
+.methodValue:hover {
+  text-decoration: underline;
+}
+
+/* Additional Info */
+.additionalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoBox {
+  background-color: var(--color-sidebar-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+}
+
+.infoItem {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.infoItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.infoItem strong {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Network Links */
+.networkList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.networkLink {
+  display: block;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-sidebar-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  color: var(--color-link);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.networkLink:hover {
+  background-color: var(--color-hover);
+  border-color: var(--color-link);
+  text-decoration: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .section {
+    padding-top: 1rem;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .methodItem {
+    padding: 0.75rem;
+  }
+}

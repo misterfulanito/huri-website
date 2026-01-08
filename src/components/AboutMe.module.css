@@ -1,0 +1,101 @@
+.section {
+  padding-top: 2rem;
+  min-height: 100vh;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h1);
+  margin-bottom: 0.5rem;
+  border-bottom: none;
+}
+
+.intro {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.content {
+  max-width: 100%;
+}
+
+/* Wikipedia-style Infobox */
+.infobox {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-sidebar-bg);
+  width: 280px;
+  float: right;
+  clear: right;
+  margin: 0 0 1.5em 1.5em;
+  font-size: var(--font-size-small);
+}
+
+.infoboxTitle {
+  font-size: var(--font-size-h3);
+  font-family: var(--font-sans);
+  font-weight: bold;
+  text-align: center;
+  padding: 0.75em;
+  background-color: var(--color-hover);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.infoboxImage {
+  text-align: center;
+  padding: 1em;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.avatar {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+}
+
+.infoboxContent {
+  background-color: var(--color-sidebar-bg);
+}
+
+.infoboxRow {
+  display: flex;
+  border-top: 1px solid var(--color-border);
+}
+
+.infoboxRow:first-child {
+  border-top: none;
+}
+
+.infoboxLabel {
+  font-weight: bold;
+  padding: 0.5em;
+  width: 40%;
+  background-color: var(--color-sidebar-bg);
+  font-size: 12px;
+}
+
+.infoboxData {
+  padding: 0.5em;
+  width: 60%;
+  background-color: var(--color-background);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.infoboxData a {
+  display: inline-block;
+  margin: 0.1em 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .infobox {
+    float: none;
+    width: 100%;
+    margin: 0 0 1.5em 0;
+  }
+
+  .section {
+    padding-top: 1rem;
+  }
+}

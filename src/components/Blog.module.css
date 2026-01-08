@@ -1,0 +1,144 @@
+.section {
+  padding-top: 2rem;
+  min-height: 100vh;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h2);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.intro {
+  margin-bottom: 2rem;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.postItem {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 2rem;
+}
+
+.postItem:last-child {
+  border-bottom: none;
+}
+
+.postHeader {
+  margin-bottom: 0.75rem;
+}
+
+.postTitle {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  margin: 0 0 0.5rem 0;
+  font-weight: 400;
+}
+
+.postLink {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.postLink:hover {
+  text-decoration: underline;
+  color: var(--color-link-hover);
+}
+
+.postLink:visited {
+  color: var(--color-link-visited);
+}
+
+.postMeta {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.postDate {
+  color: #666;
+}
+
+.separator {
+  color: var(--color-border);
+}
+
+.readTime {
+  color: #666;
+}
+
+.postExcerpt {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.postFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: var(--color-sidebar-bg);
+  color: var(--color-text-primary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  border: 1px solid var(--color-border);
+  font-size: 11px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+.readMore {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-link);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.readMore:hover {
+  text-decoration: underline;
+  color: var(--color-link-hover);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .section {
+    padding-top: 1rem;
+  }
+
+  .postTitle {
+    font-size: 18px;
+  }
+
+  .postFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

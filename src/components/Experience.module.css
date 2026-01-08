@@ -1,0 +1,157 @@
+.section {
+  padding-top: 2rem;
+  min-height: 100vh;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h2);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.intro {
+  margin-bottom: 2rem;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.experienceItem {
+  border-left: 3px solid var(--color-border);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.experienceItem::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 0;
+  width: 11px;
+  height: 11px;
+  background-color: var(--color-link);
+  border: 2px solid var(--color-background);
+  border-radius: 50%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.position {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h3);
+  margin: 0;
+  color: var(--color-text-primary);
+  flex: 1;
+  min-width: 200px;
+}
+
+.period {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  background-color: var(--color-sidebar-bg);
+  padding: 0.25rem 0.75rem;
+  border-radius: 3px;
+  border: 1px solid var(--color-border);
+}
+
+.companyInfo {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  font-family: var(--font-sans);
+}
+
+.company {
+  font-weight: 600;
+}
+
+.separator {
+  margin: 0 0.5rem;
+  color: var(--color-border);
+}
+
+.location {
+  color: #666;
+}
+
+.responsibilities {
+  margin-bottom: 1rem;
+}
+
+.subsectionTitle {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--color-text-primary);
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.technologies {
+  margin-top: 1rem;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.techTag {
+  display: inline-block;
+  background-color: var(--color-sidebar-bg);
+  color: var(--color-text-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 3px;
+  border: 1px solid var(--color-border);
+  font-size: 12px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .section {
+    padding-top: 1rem;
+  }
+
+  .experienceItem {
+    padding-left: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .period {
+    align-self: flex-start;
+  }
+}
