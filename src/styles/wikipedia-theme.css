@@ -24,7 +24,7 @@
   --accessibility-width: 12.5rem; /* 200px */
   --max-content-width: 80rem; /* 1280px */
   --content-padding: 1.25rem; /* 20px */
-  --column-gutter: 4rem; /* 64px */
+  --column-gutter: 1rem; /* 16px */
   --container-margin: 3rem; /* 48px */
   --container-margin-mobile: 1rem; /* 16px */
 
