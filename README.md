@@ -29,8 +29,56 @@ See [PRD.md](./PRD.md) for complete product requirements and development phases.
 
 ## Getting Started
 
-Setup instructions will be added as development progresses.
+### Prerequisites
+
+- Node.js 18+ and npm
+- GitHub account
+- Cloudinary account (for image hosting)
+- Tina CMS account (for content management)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/misterfulanito/huri-website.git
+cd huri-website
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables:
+```bash
+cp .env.example .env.local
+# Edit .env.local with your credentials
+```
+
+4. Run the development server:
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
 
 ## Project Status
 
-Currently in planning phase. See GitHub Projects for development timeline using CCPM methodology.
+✅ **Phase 1: Setup & Configuration** - In Progress
+- ✅ GitHub repository created
+- ✅ Next.js project initialized
+- ✅ Prettier configured
+- ✅ Tina CMS packages installed
+- ✅ Cloudinary packages installed
+- ✅ Basic project structure created
+- ⏳ Vercel deployment pending
+
+See [GitHub Projects](https://github.com/users/misterfulanito/projects/2) for complete development timeline using CCPM methodology.
