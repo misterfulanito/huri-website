@@ -23,9 +23,9 @@
   --sidebar-width: 12.5rem; /* 200px */
   --accessibility-width: 12.5rem; /* 200px */
   --max-content-width: 80rem; /* 1280px */
-  --content-padding: 1.25rem; /* 20px */
-  --column-gutter: 1rem; /* 16px */
-  --container-margin: 3rem; /* 48px */
+  --content-padding: 1rem; /* 16px */
+  --column-gutter: 2rem; /* 32px */
+  --container-margin: 2rem; /* 32px */
   --container-margin-mobile: 1rem; /* 16px */
 
   /* Light Theme Colors (default) */

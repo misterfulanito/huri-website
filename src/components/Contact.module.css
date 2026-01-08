@@ -5,17 +5,20 @@
 }
 
 .title {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-h2);
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.25em;
-  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-serif);
+  font-size: var(--font-size-h1);
+  margin-bottom: 0;
+  padding-bottom: 0.5rem; /* 8px */
+  border-bottom: 1px solid var(--color-divider);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.35;
 }
 
 .intro {
+  font-size: var(--font-size-body);
+  line-height: var(--base-line-height);
+  margin-top: 1rem;
   margin-bottom: 2rem;
-  font-size: 15px;
-  line-height: 1.7;
 }
 
 .contactGrid {
@@ -26,10 +29,12 @@
 }
 
 .subtitle {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: var(--font-size-h3);
   margin: 0 0 1.5rem 0;
   color: var(--color-text-primary);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.35;
 }
 
 /* Contact Methods */
@@ -67,21 +72,22 @@
 
 .methodLabel {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: var(--font-size-small);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #666;
+  color: var(--color-text-secondary);
   margin-bottom: 0.25rem;
   font-weight: 600;
 }
 
 .methodValue {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: var(--font-size-body);
   color: var(--color-link);
   text-decoration: none;
   display: block;
   font-weight: 500;
+  line-height: var(--base-line-height);
 }
 
 .methodValue:hover {
@@ -105,8 +111,10 @@
 .infoItem {
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--color-border);
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: var(--font-size-body);
+  line-height: var(--base-line-height);
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
 }
 
 .infoItem:last-child {
@@ -136,8 +144,9 @@
   color: var(--color-link);
   text-decoration: none;
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: var(--font-size-body);
   font-weight: 500;
+  line-height: var(--base-line-height);
   transition: background-color var(--transition-fast),
     border-color var(--transition-fast);
 }

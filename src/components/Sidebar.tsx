@@ -61,6 +61,8 @@ export default function Sidebar() {
   return (
     <aside className={styles.sidebar}>
       <nav className={styles.nav}>
+        <h4 className={styles.navTitle}>Contents</h4>
+
         <ul className={styles.navList}>
           {/* Top button */}
           <li className={styles.navItem}>
@@ -75,11 +77,8 @@ export default function Sidebar() {
               (top)
             </a>
           </li>
-        </ul>
 
-        <h4 className={styles.navTitle}>Contents</h4>
-
-        <ul className={styles.navList}>
+          {/* Section links */}
           {sections.map(section => (
             <li key={section.id} className={styles.navItem}>
               <a

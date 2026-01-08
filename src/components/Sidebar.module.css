@@ -1,26 +1,26 @@
 .sidebar {
   position: fixed;
   top: 3.75rem; /* 60px */
-  left: 0;
+  left: var(--container-margin); /* 32px from left */
   width: var(--sidebar-width);
   height: calc(100vh - 3.75rem);
   background-color: transparent;
   overflow-y: auto;
-  padding: 3rem 1.25rem 1.25rem; /* 48px 20px 20px */
+  padding: var(--content-padding) 0; /* 16px top, 0 sides */
   z-index: 50;
 }
 
 .nav {
   position: sticky;
-  top: 1.25rem;
+  top: 1rem;
 }
 
 .navTitle {
   font-family: var(--font-serif);
   font-size: var(--font-size-h4);
   font-weight: var(--font-weight-normal);
-  margin-bottom: 2rem; /* 32px */
-  padding-bottom: 2rem; /* 32px */
+  margin-bottom: 0.5rem; /* 8px */
+  padding-bottom: 0.5rem; /* 8px */
   border-bottom: 1px solid #c8ccd1;
   color: var(--color-text-primary);
   line-height: 1.35;
@@ -43,13 +43,14 @@
   text-decoration: none;
   font-family: var(--font-sans);
   font-size: 0.875rem; /* 14px */
-  transition: color var(--transition-fast);
+  transition: color 0.2s ease-in-out, transform 0.15s ease-in-out;
   line-height: 1.6;
 }
 
 .navLink:hover {
   color: #043d8f;
   text-decoration: none;
+  transform: translateX(2px);
 }
 
 .navLink.active {
@@ -67,7 +68,7 @@
 
 /* Top link */
 .topLink {
-  margin-bottom: 1.5rem; /* 24px */
+  margin-bottom: 0.5rem; /* 8px */
 }
 
 .topLink.disabled {

@@ -47,15 +47,17 @@ export default function AccessibilityTools() {
   }, [textSize]);
 
   useEffect(() => {
-    // Apply width
+    // Apply width - affects mainContent only
     const root = document.documentElement;
     if (width === 'wide') {
-      root.style.setProperty('--max-content-width', '100%');
+      // Wide: mainContent expands to fill available space
+      root.style.setProperty('--max-content-width', 'none');
       setShowWidthMessage(true);
       // Hide message after 3 seconds
       const timer = setTimeout(() => setShowWidthMessage(false), 3000);
       return () => clearTimeout(timer);
     } else {
+      // Standard: fixed 1280px
       root.style.setProperty('--max-content-width', '80rem'); // 1280px
       setShowWidthMessage(false);
     }

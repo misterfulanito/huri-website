@@ -60,7 +60,12 @@ const blogPosts: BlogPost[] = [
 export default function Blog() {
   return (
     <section id="blog" className={styles.section}>
-      <h2 className={styles.title}>Blog</h2>
+      <div className={styles.header}>
+        <h2 className={styles.title}>Blog</h2>
+        <a href="#blog-all" className={styles.blogButton}>
+          Blog
+        </a>
+      </div>
 
       <p className={styles.intro}>
         Articles and thoughts on web development, programming, and technology.
@@ -68,8 +73,8 @@ export default function Blog() {
         engineering.
       </p>
 
-      <div className={styles.postList}>
-        {blogPosts.map((post, index) => (
+      <div className={styles.postGrid}>
+        {blogPosts.slice(0, 3).map((post, index) => (
           <article key={index} className={styles.postItem}>
             <div className={styles.postHeader}>
               <h3 className={styles.postTitle}>
