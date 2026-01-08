@@ -8,10 +8,10 @@
   display: flex;
   justify-content: center;
   gap: var(--column-gutter);
-  max-width: 1800px;
+  max-width: 112.5rem; /* 1800px */
   margin: 0 auto;
   width: 100%;
-  padding: 0 var(--content-padding);
+  padding: 0 var(--container-margin); /* 48px */
 }
 
 .mainContent {
@@ -30,7 +30,7 @@
 /* Large desktop: three columns */
 @media (min-width: 1201px) {
   .contentWrapper {
-    padding-left: calc(var(--sidebar-width) + var(--column-gutter));
+    padding-left: calc(var(--sidebar-width) + var(--column-gutter) + var(--container-margin));
   }
 }
 
@@ -48,17 +48,24 @@
 /* Desktop: add left margin for sidebar */
 @media (min-width: 769px) and (max-width: 1200px) {
   .contentWrapper {
-    padding-left: calc(var(--sidebar-width) + var(--column-gutter) / 2);
+    padding-left: calc(var(--sidebar-width) + var(--column-gutter) / 2 + var(--container-margin));
   }
 }
 
 /* Mobile: full width */
 @media (max-width: 768px) {
   .contentWrapper {
-    padding: 0;
+    padding: 0 var(--container-margin);
   }
 
   .mainContent {
     padding: var(--spacing-md);
+  }
+}
+
+/* Small mobile: reduce margins */
+@media (max-width: 400px) {
+  .contentWrapper {
+    padding: 0 var(--container-margin-mobile); /* 16px */
   }
 }

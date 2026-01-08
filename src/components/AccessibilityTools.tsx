@@ -11,6 +11,7 @@ export default function AccessibilityTools() {
   const [textSize, setTextSize] = useState<TextSize>('standard');
   const [width, setWidth] = useState<Width>('standard');
   const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  const [showWidthMessage, setShowWidthMessage] = useState(false);
 
   useEffect(() => {
     // Load preferences from localStorage
@@ -24,20 +25,23 @@ export default function AccessibilityTools() {
   }, []);
 
   useEffect(() => {
-    // Apply text size
+    // Apply text size - affects font size only
     const root = document.documentElement;
     switch (textSize) {
       case 'small':
-        root.style.setProperty('--base-font-size', '14px');
-        root.style.setProperty('--base-line-height', '22px');
+        // 75% of 16px = 12px
+        root.style.setProperty('--base-font-size', '0.75rem');
+        root.style.setProperty('--base-line-height', '1.625');
         break;
       case 'large':
-        root.style.setProperty('--base-font-size', '18px');
-        root.style.setProperty('--base-line-height', '30px');
+        // 150% of 16px = 24px
+        root.style.setProperty('--base-font-size', '1.5rem');
+        root.style.setProperty('--base-line-height', '1.625');
         break;
       default:
-        root.style.setProperty('--base-font-size', '16px');
-        root.style.setProperty('--base-line-height', '26px');
+        // 100% = 16px = 1rem
+        root.style.setProperty('--base-font-size', '1rem');
+        root.style.setProperty('--base-line-height', '1.625');
     }
     localStorage.setItem('textSize', textSize);
   }, [textSize]);
@@ -46,9 +50,14 @@ export default function AccessibilityTools() {
     // Apply width
     const root = document.documentElement;
     if (width === 'wide') {
-      root.style.setProperty('--max-content-width', '1400px');
+      root.style.setProperty('--max-content-width', '100%');
+      setShowWidthMessage(true);
+      // Hide message after 3 seconds
+      const timer = setTimeout(() => setShowWidthMessage(false), 3000);
+      return () => clearTimeout(timer);
     } else {
-      root.style.setProperty('--max-content-width', '1000px');
+      root.style.setProperty('--max-content-width', '80rem'); // 1280px
+      setShowWidthMessage(false);
     }
     localStorage.setItem('width', width);
   }, [width]);
@@ -71,77 +80,120 @@ export default function AccessibilityTools() {
       <div className={styles.section}>
         <h3 className={styles.sectionTitle}>Appearance</h3>
 
+        {/* Text Size */}
         <div className={styles.control}>
           <div className={styles.controlLabel}>Text</div>
-          <div className={styles.buttonGroup}>
-            <button
-              className={`${styles.button} ${textSize === 'small' ? styles.active : ''}`}
-              onClick={() => setTextSize('small')}
-              aria-pressed={textSize === 'small'}
-            >
-              Small
-            </button>
-            <button
-              className={`${styles.button} ${textSize === 'standard' ? styles.active : ''}`}
-              onClick={() => setTextSize('standard')}
-              aria-pressed={textSize === 'standard'}
-            >
-              Standard
-            </button>
-            <button
-              className={`${styles.button} ${textSize === 'large' ? styles.active : ''}`}
-              onClick={() => setTextSize('large')}
-              aria-pressed={textSize === 'large'}
-            >
-              Large
-            </button>
+          <div className={styles.divider}></div>
+          <div className={styles.radioGroup}>
+            <label className={styles.radioLabel}>
+              <input
+                type="radio"
+                name="textSize"
+                value="small"
+                checked={textSize === 'small'}
+                onChange={() => setTextSize('small')}
+                className={styles.radio}
+              />
+              <span>Small</span>
+            </label>
+            <label className={styles.radioLabel}>
+              <input
+                type="radio"
+                name="textSize"
+                value="standard"
+                checked={textSize === 'standard'}
+                onChange={() => setTextSize('standard')}
+                className={styles.radio}
+              />
+              <span>Standard</span>
+            </label>
+            <label className={styles.radioLabel}>
+              <input
+                type="radio"
+                name="textSize"
+                value="large"
+                checked={textSize === 'large'}
+                onChange={() => setTextSize('large')}
+                className={styles.radio}
+              />
+              <span>Large</span>
+            </label>
           </div>
         </div>
 
+        {/* Width */}
         <div className={styles.control}>
           <div className={styles.controlLabel}>Width</div>
-          <div className={styles.buttonGroup}>
-            <button
-              className={`${styles.button} ${width === 'standard' ? styles.active : ''}`}
-              onClick={() => setWidth('standard')}
-              aria-pressed={width === 'standard'}
-            >
-              Standard
-            </button>
-            <button
-              className={`${styles.button} ${width === 'wide' ? styles.active : ''}`}
-              onClick={() => setWidth('wide')}
-              aria-pressed={width === 'wide'}
-            >
-              Wide
-            </button>
+          <div className={styles.divider}></div>
+          <div className={styles.radioGroup}>
+            <label className={styles.radioLabel}>
+              <input
+                type="radio"
+                name="width"
+                value="standard"
+                checked={width === 'standard'}
+                onChange={() => setWidth('standard')}
+                className={styles.radio}
+              />
+              <span>Standard</span>
+            </label>
+            <label className={styles.radioLabel}>
+              <input
+                type="radio"
+                name="width"
+                value="wide"
+                checked={width === 'wide'}
+                onChange={() => setWidth('wide')}
+                className={styles.radio}
+              />
+              <span>Wide</span>
+            </label>
           </div>
+          {showWidthMessage && width === 'wide' && (
+            <div className={styles.widthMessage}>
+              The content is as wide as possible for your browser window.
+            </div>
+          )}
         </div>
 
+        {/* Color */}
         <div className={styles.control}>
           <div className={styles.controlLabel}>Color</div>
-          <div className={styles.buttonGroup}>
-            <button
-              className={`${styles.button} ${colorScheme === 'automatic' ? styles.active : ''}`}
-              onClick={() => setColorScheme('automatic')}
-              aria-pressed={colorScheme === 'automatic'}
-            >
-              Automatic
-            </button>
-            <button
-              className={`${styles.button} ${colorScheme === 'light' ? styles.active : ''}`}
-              onClick={() => setColorScheme('light')}
-              aria-pressed={colorScheme === 'light'}
-            >
-              Light
-            </button>
-            <button
-              className={`${styles.button} ${colorScheme === 'dark' ? styles.active : ''}`}
-              onClick={() => setColorScheme('dark')}
-              aria-pressed={colorScheme === 'dark'}
-            >
-              Dark
-            </button>
+          <div className={styles.divider}></div>
+          <div className={styles.radioGroup}>
+            <label className={styles.radioLabel}>
+              <input
+                type="radio"
+                name="colorScheme"
+                value="automatic"
+                checked={colorScheme === 'automatic'}
+                onChange={() => setColorScheme('automatic')}
+                className={styles.radio}
+              />
+              <span>Automatic</span>
+            </label>
+            <label className={styles.radioLabel}>
+              <input
+                type="radio"
+                name="colorScheme"
+                value="light"
+                checked={colorScheme === 'light'}
+                onChange={() => setColorScheme('light')}
+                className={styles.radio}
+              />
+              <span>Light</span>
+            </label>
+            <label className={styles.radioLabel}>
+              <input
+                type="radio"
+                name="colorScheme"
+                value="dark"
+                checked={colorScheme === 'dark'}
+                onChange={() => setColorScheme('dark')}
+                className={styles.radio}
+              />
+              <span>Dark</span>
+            </label>
           </div>
         </div>
       </div>

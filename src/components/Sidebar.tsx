@@ -13,10 +13,14 @@ const sections = [
 
 export default function Sidebar() {
   const [activeSection, setActiveSection] = useState('about');
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
+
+      // Check if user has scrolled down
+      setIsScrolled(window.scrollY > 100);
 
       for (const section of sections) {
         const element = document.getElementById(section.id);
@@ -33,6 +37,7 @@ export default function Sidebar() {
       }
     };
 
+    handleScroll(); // Check initial state
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -48,10 +53,32 @@ export default function Sidebar() {
     }
   };
 
+  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <aside className={styles.sidebar}>
       <nav className={styles.nav}>
-        <div className={styles.navTitle}>Contents</div>
+        <ul className={styles.navList}>
+          {/* Top button */}
+          <li className={styles.navItem}>
+            <a
+              href="#top"
+              className={`${styles.navLink} ${styles.topLink} ${
+                !isScrolled ? styles.disabled : ''
+              }`}
+              onClick={scrollToTop}
+              aria-disabled={!isScrolled}
+            >
+              (top)
+            </a>
+          </li>
+        </ul>
+
+        <h4 className={styles.navTitle}>Contents</h4>
+
         <ul className={styles.navList}>
           {sections.map(section => (
             <li key={section.id} className={styles.navItem}>
