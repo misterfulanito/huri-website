@@ -1,3 +1,6 @@
+'use client';
+
+import { Chrono } from 'react-chrono';
 import styles from './Experience.module.css';
 
 interface ExperienceItem {
@@ -47,6 +50,14 @@ const experiences: ExperienceItem[] = [
   },
 ];
 
+// Transform data for react-chrono
+const chronoItems = experiences.map((exp) => ({
+  title: exp.period,
+  cardTitle: exp.position,
+  cardSubtitle: `${exp.company} • ${exp.location}`,
+  cardDetailedText: exp.responsibilities,
+}));
+
 export default function Experience() {
   return (
     <section id="experience" className={styles.section}>
@@ -57,31 +68,28 @@ export default function Experience() {
         on web technologies and full-stack engineering.
       </p>
 
-      <div className={styles.timeline}>
-        {experiences.map((exp, index) => (
-          <article key={index} className={styles.experienceItem}>
-            <div className={styles.timelineDot}></div>
-
-            <div className={styles.content}>
-              <div className={styles.header}>
-                <h3 className={styles.position}>{exp.position}</h3>
-                <span className={styles.period}>{exp.period}</span>
-              </div>
-
-              <div className={styles.companyInfo}>
-                <span className={styles.company}>{exp.company}</span>
-                <span className={styles.separator}>•</span>
-                <span className={styles.location}>{exp.location}</span>
-              </div>
-
-              <ul className={styles.responsibilities}>
-                {exp.responsibilities.map((resp, i) => (
-                  <li key={i}>{resp}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
+      <div className={styles.timelineWrapper}>
+        <Chrono
+          items={chronoItems}
+          mode="VERTICAL"
+          hideControls
+          disableToolbar
+          disableClickOnCircle
+          cardHeight={200}
+          theme={{
+            primary: '#0645ad',
+            secondary: '#f8f9fa',
+            cardBgColor: '#f8f9fa',
+            titleColor: '#000000',
+            titleColorActive: '#0645ad',
+          }}
+          fontSizes={{
+            cardSubtitle: '0.875rem',
+            cardText: '0.875rem',
+            cardTitle: '1.25rem',
+            title: '0.8125rem',
+          }}
+        />
       </div>
     </section>
   );
