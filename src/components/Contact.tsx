@@ -7,7 +7,7 @@ export default function Contact() {
 
       <p className={styles.intro}>
         Feel free to reach out for collaborations, questions, or just to say
-        hello. I'm always open to discussing new projects and opportunities.
+        hello. I&apos;m always open to discussing new projects and opportunities.
       </p>
 
       <div className={styles.contactGrid}>

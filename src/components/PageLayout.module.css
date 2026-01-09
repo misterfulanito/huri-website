@@ -4,55 +4,77 @@
   flex-direction: column;
 }
 
+/* Standard mode: centered container with max-width */
 .contentWrapper {
   display: flex;
   width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
   padding-left: var(--container-margin);
   padding-right: var(--container-margin);
+  position: relative;
 }
 
+/* Sidebar column - fixed width on left */
+.sidebarColumn {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  padding-top: var(--content-padding);
+}
+
+/* Main content - flexible width in the middle */
 .mainContent {
   flex: 1;
-  width: 100%;
-  max-width: var(--max-content-width);
-  padding-top: var(--content-padding);
-  margin-left: calc(var(--sidebar-width) + var(--column-gutter));
-  margin-right: var(--column-gutter);
   min-width: 0;
+  padding: var(--content-padding) var(--column-gutter);
 }
 
+/* Accessibility column - fixed width on right */
 .accessibilityColumn {
   width: var(--accessibility-width);
   flex-shrink: 0;
   padding-top: var(--content-padding);
 }
 
-/* Tablet and below: hide accessibility column */
-@media (max-width: 1200px) {
+/* Wide mode - full viewport width */
+[data-width='wide'] .contentWrapper {
+  max-width: none;
+}
+
+/* ================================
+   RESPONSIVE BREAKPOINTS
+   Desktop: > 1024px (full 3-column layout)
+   Tablet: 768px - 1024px (2-column, no accessibility)
+   Mobile: < 768px (single column)
+   Small mobile: < 480px (reduced margins)
+   ================================ */
+
+/* Tablet: hide accessibility column */
+@media (max-width: 1024px) {
   .accessibilityColumn {
     display: none;
   }
-
-  .mainContent {
-    margin-right: 0;
-  }
 }
 
-/* Mobile: adjust layout */
+/* Mobile: single column layout */
 @media (max-width: 768px) {
   .contentWrapper {
+    flex-direction: column;
     padding-left: var(--container-margin);
     padding-right: var(--container-margin);
   }
 
+  .sidebarColumn {
+    display: none;
+  }
+
   .mainContent {
-    margin-left: 0;
-    padding: var(--content-padding);
+    padding: var(--content-padding) 0;
   }
 }
 
-/* Small mobile: reduce margins */
-@media (max-width: 400px) {
+/* Small mobile: reduced margins */
+@media (max-width: 480px) {
   .contentWrapper {
     padding-left: var(--container-margin-mobile);
     padding-right: var(--container-margin-mobile);

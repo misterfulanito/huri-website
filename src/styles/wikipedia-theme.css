@@ -9,20 +9,20 @@
   --base-font-size: 1rem; /* 16px */
   --base-line-height: 1.625; /* 26px / 16px */
   --font-size-body: var(--base-font-size);
-  --font-size-h1: 2rem; /* 32px */
-  --font-size-h2: 1.5rem; /* 24px */
-  --font-size-h3: 1.25rem; /* 20px */
-  --font-size-h4: 1.125rem; /* 18px */
-  --font-size-h5: 1.0625rem; /* 17px */
-  --font-size-h6: 1rem; /* 16px */
-  --font-size-small: 0.875rem; /* 14px */
+  --font-size-h1: calc(var(--base-font-size) * 2); /* 32px at 1rem base */
+  --font-size-h2: calc(var(--base-font-size) * 1.5); /* 24px at 1rem base */
+  --font-size-h3: calc(var(--base-font-size) * 1.25); /* 20px at 1rem base */
+  --font-size-h4: calc(var(--base-font-size) * 1.125); /* 18px at 1rem base */
+  --font-size-h5: calc(var(--base-font-size) * 1.0625); /* 17px at 1rem base */
+  --font-size-h6: var(--base-font-size); /* 16px at 1rem base */
+  --font-size-small: calc(var(--base-font-size) * 0.875); /* 14px at 1rem base */
   --font-weight-normal: 400;
   --letter-spacing: normal;
 
   /* Layout */
   --sidebar-width: 12.5rem; /* 200px */
   --accessibility-width: 12.5rem; /* 200px */
-  --max-content-width: 80rem; /* 1280px */
+  --max-content-width: 84rem; /* 1280px + 32px margins each side = 1344px */
   --content-padding: 1rem; /* 16px */
   --column-gutter: 2rem; /* 32px */
   --container-margin: 2rem; /* 32px */
@@ -40,6 +40,7 @@
   --color-sidebar-bg: transparent;
   --color-hover: #eaecf0;
   --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-focus-ring: rgba(6, 69, 173, 0.3);
   --color-infobox-title-bg: #c3d6ef;
   --color-infobox-bg: #f8f9fa;
   --color-infobox-row-bg: #ffffff;
@@ -53,22 +54,23 @@
   --transition-normal: 250ms ease;
 }
 
-/* Dark Theme */
+/* Dark Theme - High Contrast */
 [data-theme='dark'] {
-  --color-background: #1a1a1a;
-  --color-text-primary: #eaecf0;
-  --color-text-secondary: #a2a9b1;
-  --color-link: #6b9cef;
-  --color-link-visited: #a47dda;
-  --color-link-hover: #8bb3ff;
-  --color-border: #54595d;
-  --color-divider: #54595d;
+  --color-background: #101418;
+  --color-text-primary: #f0f2f5;
+  --color-text-secondary: #b8bcc2;
+  --color-link: #7db4ff;
+  --color-link-visited: #c8a8ff;
+  --color-link-hover: #a8cfff;
+  --color-border: #6c7380;
+  --color-divider: #4a5060;
   --color-sidebar-bg: transparent;
-  --color-hover: #27292d;
-  --color-shadow: rgba(0, 0, 0, 0.3);
-  --color-infobox-title-bg: #2a4b7c;
-  --color-infobox-bg: #27292d;
-  --color-infobox-row-bg: #1a1a1a;
+  --color-hover: #1e2530;
+  --color-shadow: rgba(0, 0, 0, 0.4);
+  --color-focus-ring: rgba(125, 180, 255, 0.4);
+  --color-infobox-title-bg: #1e3a5f;
+  --color-infobox-bg: #1a2030;
+  --color-infobox-row-bg: #101418;
 }
 
 /* Windows-specific font adjustment */
@@ -258,7 +260,22 @@
   font-style: italic;
 }
 
-/* Mobile Responsive Adjustments */
+/* ================================
+   RESPONSIVE BREAKPOINTS
+   Desktop: > 1024px
+   Tablet: 768px - 1024px
+   Mobile: < 768px
+   Small mobile: < 480px
+   ================================ */
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  :root {
+    --accessibility-width: 0;
+  }
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .wiki-infobox {
     float: none;
@@ -268,6 +285,14 @@
 
   :root {
     --sidebar-width: 0;
-    --content-padding: 15px;
+    --content-padding: 1rem;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  :root {
+    --container-margin: 1rem;
+    --column-gutter: 1rem;
   }
 }

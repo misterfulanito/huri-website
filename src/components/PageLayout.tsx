@@ -18,7 +18,9 @@ export default function PageLayout({ children }: PageLayoutProps) {
     <div className={styles.pageContainer}>
       <Header onMenuClick={() => setIsMobileNavOpen(true)} />
       <div className={styles.contentWrapper}>
-        <Sidebar />
+        <aside className={styles.sidebarColumn}>
+          <Sidebar />
+        </aside>
         <MobileNav
           isOpen={isMobileNavOpen}
           onClose={() => setIsMobileNavOpen(false)}

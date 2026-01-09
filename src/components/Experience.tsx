@@ -78,9 +78,8 @@ export default function Experience() {
         <Chrono
           items={chronoItems}
           mode="VERTICAL"
-          hideControls
           disableToolbar
-          disableClickOnCircle
+          disableInteraction
           cardHeight={200}
           theme={{
             primary: '#0645ad',

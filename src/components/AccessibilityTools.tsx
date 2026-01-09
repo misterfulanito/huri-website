@@ -8,13 +8,14 @@ type Width = 'standard' | 'wide';
 type ColorScheme = 'automatic' | 'light' | 'dark';
 
 export default function AccessibilityTools() {
+  const [mounted, setMounted] = useState(false);
   const [textSize, setTextSize] = useState<TextSize>('standard');
   const [width, setWidth] = useState<Width>('standard');
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('automatic');
   const [showWidthMessage, setShowWidthMessage] = useState(false);
 
   useEffect(() => {
-    // Load preferences from localStorage
+    // Load preferences from localStorage on mount
     const savedTextSize = localStorage.getItem('textSize') as TextSize;
     const savedWidth = localStorage.getItem('width') as Width;
     const savedColorScheme = localStorage.getItem('colorScheme') as ColorScheme;
@@ -22,6 +23,8 @@ export default function AccessibilityTools() {
     if (savedTextSize) setTextSize(savedTextSize);
     if (savedWidth) setWidth(savedWidth);
     if (savedColorScheme) setColorScheme(savedColorScheme);
+
+    setMounted(true);
   }, []);
 
   useEffect(() => {
@@ -47,18 +50,20 @@ export default function AccessibilityTools() {
   }, [textSize]);
 
   useEffect(() => {
-    // Apply width - affects mainContent only
+    // Apply width - affects layout container
     const root = document.documentElement;
+    root.setAttribute('data-width', width);
+
     if (width === 'wide') {
-      // Wide: mainContent expands to fill available space
+      // Wide: full viewport width
       root.style.setProperty('--max-content-width', 'none');
       setShowWidthMessage(true);
       // Hide message after 3 seconds
       const timer = setTimeout(() => setShowWidthMessage(false), 3000);
       return () => clearTimeout(timer);
     } else {
-      // Standard: fixed 1280px
-      root.style.setProperty('--max-content-width', '80rem'); // 1280px
+      // Standard: 1280px + margins (2rem each side) = 84rem total
+      root.style.setProperty('--max-content-width', '84rem');
       setShowWidthMessage(false);
     }
     localStorage.setItem('width', width);
@@ -76,6 +81,17 @@ export default function AccessibilityTools() {
     }
     localStorage.setItem('colorScheme', colorScheme);
   }, [colorScheme]);
+
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return (
+      <aside className={styles.accessibility}>
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>Appearance</h3>
+        </div>
+      </aside>
+    );
+  }
 
   return (
     <aside className={styles.accessibility}>

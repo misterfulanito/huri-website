@@ -113,7 +113,7 @@ export default function AboutMe() {
           development methodologies.
         </p>
 
-        <h3>Professional Philosophy</h3>
+        <h2>Professional Philosophy</h2>
         <p>
           Huri believes in writing clean, maintainable code and values
           collaboration and continuous learning. A strong advocate for web

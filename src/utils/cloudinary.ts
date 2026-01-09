@@ -1,4 +1,5 @@
 import { Cloudinary } from '@cloudinary/url-gen';
+import { scale } from '@cloudinary/url-gen/actions/resize';
 
 // Initialize Cloudinary instance
 export const cloudinary = new Cloudinary({
@@ -19,12 +20,12 @@ export function getCloudinaryImageUrl(
 ) {
   const image = cloudinary.image(publicId);
 
-  if (options?.width) {
-    image.resize(`w_${options.width}`);
-  }
-
-  if (options?.height) {
-    image.resize(`h_${options.height}`);
+  if (options?.width && options?.height) {
+    image.resize(scale().width(options.width).height(options.height));
+  } else if (options?.width) {
+    image.resize(scale().width(options.width));
+  } else if (options?.height) {
+    image.resize(scale().height(options.height));
   }
 
   image.quality(options?.quality || 'auto');

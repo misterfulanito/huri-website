@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import styles from './MobileNav.module.css';
 
 interface MobileNavProps {
@@ -17,17 +17,28 @@ const sections = [
 ];
 
 export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
+  const handleEscape = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      document.addEventListener('keydown', handleEscape);
     } else {
       document.body.style.overflow = '';
     }
 
     return () => {
       document.body.style.overflow = '';
+      document.removeEventListener('keydown', handleEscape);
     };
-  }, [isOpen]);
+  }, [isOpen, handleEscape]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -35,7 +46,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
     if (element) {
       const yOffset = -80;
       const y =
-        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        element.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
       onClose();
     }
@@ -45,7 +56,14 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
   return (
     <>
-      <div className={styles.overlay} onClick={onClose} />
+      <div
+        className={styles.overlay}
+        onClick={onClose}
+        role="button"
+        aria-label="Close navigation menu"
+        tabIndex={0}
+        onKeyDown={e => e.key === 'Enter' && onClose()}
+      />
       <nav className={styles.mobileNav}>
         <div className={styles.header}>
           <h2 className={styles.title}>Navigation</h2>
