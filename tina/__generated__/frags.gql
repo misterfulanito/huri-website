@@ -1,0 +1,24 @@
+fragment BlogParts on Blog {
+  __typename
+  title
+  slug
+  date
+  excerpt
+  body
+  featuredImage
+  tags
+  published
+}
+
+fragment PortfolioParts on Portfolio {
+  __typename
+  title
+  slug
+  thumbnail
+  description
+  technologies
+  liveUrl
+  githubUrl
+  featured
+  order
+}

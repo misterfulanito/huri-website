@@ -2,9 +2,14 @@ import { defineConfig } from 'tinacms';
 
 // Tina CMS Configuration
 export default defineConfig({
-  branch: process.env.NEXT_PUBLIC_TINA_BRANCH || 'main',
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  token: process.env.TINA_TOKEN,
+  branch:
+    process.env.GITHUB_BRANCH ||
+    process.env.VERCEL_GIT_COMMIT_REF ||
+    process.env.HEAD ||
+    'main',
+  // For Tina Cloud (production) - set these in your environment
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
+  token: process.env.TINA_TOKEN || null,
 
   build: {
     outputFolder: 'admin',
@@ -13,7 +18,7 @@ export default defineConfig({
 
   media: {
     tina: {
-      mediaRoot: '',
+      mediaRoot: 'uploads',
       publicFolder: 'public',
     },
   },
