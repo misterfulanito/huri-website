@@ -59,9 +59,9 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className={styles.sidebar}>
-      <nav className={styles.nav}>
-        <h4 className={styles.navTitle}>Contents</h4>
+    <aside className={styles.sidebar} aria-label="Page navigation">
+      <nav className={styles.nav} aria-labelledby="sidebar-nav-title">
+        <h4 id="sidebar-nav-title" className={styles.navTitle}>Contents</h4>
 
         <ul className={styles.navList}>
           {/* Top button */}

@@ -99,6 +99,17 @@ a:hover {
   color: var(--color-link-hover);
 }
 
+/* Focus visible styles for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+  border-radius: var(--border-radius);
+}
+
 p {
   margin-bottom: 1em;
   line-height: var(--base-line-height);

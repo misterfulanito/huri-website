@@ -17,6 +17,7 @@ export default function AboutMe() {
             width={220}
             height={220}
             className={styles.avatar}
+            priority
           />
         </div>
 

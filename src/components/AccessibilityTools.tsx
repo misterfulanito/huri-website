@@ -99,10 +99,10 @@ export default function AccessibilityTools() {
         <h3 className={styles.sectionTitle}>Appearance</h3>
 
         {/* Text Size */}
-        <div className={styles.control}>
-          <div className={styles.controlLabel}>Text</div>
+        <fieldset className={styles.control}>
+          <legend className={styles.controlLabel}>Text</legend>
           <div className={styles.divider}></div>
-          <div className={styles.radioGroup}>
+          <div className={styles.radioGroup} role="radiogroup" aria-label="Text size">
             <label className={styles.radioLabel}>
               <input
                 type="radio"
@@ -137,13 +137,13 @@ export default function AccessibilityTools() {
               <span>Large</span>
             </label>
           </div>
-        </div>
+        </fieldset>
 
         {/* Width */}
-        <div className={styles.control}>
-          <div className={styles.controlLabel}>Width</div>
+        <fieldset className={styles.control}>
+          <legend className={styles.controlLabel}>Width</legend>
           <div className={styles.divider}></div>
-          <div className={styles.radioGroup}>
+          <div className={styles.radioGroup} role="radiogroup" aria-label="Content width">
             <label className={styles.radioLabel}>
               <input
                 type="radio"
@@ -168,17 +168,17 @@ export default function AccessibilityTools() {
             </label>
           </div>
           {showWidthMessage && width === 'wide' && (
-            <div className={styles.widthMessage}>
+            <div className={styles.widthMessage} role="status" aria-live="polite">
               The content is as wide as possible for your browser window.
             </div>
           )}
-        </div>
+        </fieldset>
 
         {/* Color */}
-        <div className={styles.control}>
-          <div className={styles.controlLabel}>Color</div>
+        <fieldset className={styles.control}>
+          <legend className={styles.controlLabel}>Color</legend>
           <div className={styles.divider}></div>
-          <div className={styles.radioGroup}>
+          <div className={styles.radioGroup} role="radiogroup" aria-label="Color scheme">
             <label className={styles.radioLabel}>
               <input
                 type="radio"
@@ -213,7 +213,7 @@ export default function AccessibilityTools() {
               <span>Dark</span>
             </label>
           </div>
-        </div>
+        </fieldset>
       </div>
     </aside>
   );
