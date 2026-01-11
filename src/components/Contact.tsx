@@ -177,6 +177,16 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      {/* Footer with subtle easter egg hint */}
+      <footer className={styles.footer}>
+        <p className={styles.footerText}>
+          Built with Next.js, TypeScript, and a love for clean code.
+        </p>
+        <p className={styles.footerHint}>
+          Old-school gamers might find something special here...
+        </p>
+      </footer>
     </section>
   );
 }

@@ -136,3 +136,54 @@ img {
   outline: 2px solid var(--color-text-primary);
   outline-offset: 2px;
 }
+
+/* Konami Code Easter Egg Effect */
+html.konami-active {
+  /* Subtle scanline effect */
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+}
+
+html.konami-active body {
+  /* Subtle CRT glow effect */
+  text-shadow: 0 0 1px currentColor;
+}
+
+/* Add a subtle pixel font effect to headings when activated */
+html.konami-active h1,
+html.konami-active h2,
+html.konami-active h3 {
+  text-shadow:
+    1px 1px 0 var(--color-link),
+    -1px -1px 0 var(--color-link-visited);
+}
+
+/* Add retro cursor */
+html.konami-active * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%237db4ff' d='M0 0v16l4-4h12z'/%3E%3C/svg%3E"), auto !important;
+}
+
+/* Console message on page load */
+html.konami-active::after {
+  content: '';
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-link);
+  border-radius: 50%;
+  animation: blink 1s ease-in-out infinite;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}

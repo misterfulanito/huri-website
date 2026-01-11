@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '../styles/globals.css';
+import KonamiCode from '../components/KonamiCode';
 
 export const metadata: Metadata = {
   title: 'Huri Portfolio',
@@ -17,6 +18,7 @@ export default function RootLayout({
         <a href="#about" className="skip-to-content">
           Skip to main content
         </a>
+        <KonamiCode />
         {children}
       </body>
     </html>

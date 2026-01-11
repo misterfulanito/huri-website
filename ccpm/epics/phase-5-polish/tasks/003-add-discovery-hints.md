@@ -1,6 +1,6 @@
 ---
 title: Add discovery hints throughout site
-status: pending
+status: done
 priority: low
 epic: phase-5-polish
 created: 2025-01-09

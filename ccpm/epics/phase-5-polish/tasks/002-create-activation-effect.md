@@ -1,6 +1,6 @@
 ---
 title: Create activation effect
-status: pending
+status: done
 priority: medium
 epic: phase-5-polish
 created: 2025-01-09

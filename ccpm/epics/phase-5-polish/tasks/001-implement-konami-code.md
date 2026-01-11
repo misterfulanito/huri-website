@@ -1,6 +1,6 @@
 ---
 title: Implement Konami Code listener
-status: pending
+status: done
 priority: high
 epic: phase-5-polish
 created: 2025-01-09
