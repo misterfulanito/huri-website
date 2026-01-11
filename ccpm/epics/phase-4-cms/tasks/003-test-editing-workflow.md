@@ -1,6 +1,6 @@
 ---
 title: Test content editing workflow
-status: pending
+status: done
 priority: medium
 epic: phase-4-cms
 created: 2025-01-09

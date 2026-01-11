@@ -1,6 +1,6 @@
 ---
 title: Set up authentication for admin
-status: pending
+status: done
 priority: high
 epic: phase-4-cms
 created: 2025-01-09
