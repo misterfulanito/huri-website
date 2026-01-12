@@ -1,6 +1,6 @@
 ---
 title: Write maintenance guide
-status: pending
+status: done
 priority: low
 epic: phase-6-deployment
 created: 2025-01-09
@@ -16,13 +16,18 @@ labels:
 Document ongoing maintenance procedures.
 
 ## Guide Contents
-- [ ] How to add new blog posts
-- [ ] How to add/edit portfolio projects
-- [ ] How to update About Me content
-- [ ] How to add new Experience entries
-- [ ] Dependency update process
-- [ ] Backup procedures
-- [ ] Troubleshooting common issues
+- [x] How to add new blog posts
+- [x] How to add/edit portfolio projects
+- [x] How to update About Me content
+- [x] How to add new Experience entries
+- [x] Dependency update process
+- [x] Backup procedures
+- [x] Troubleshooting common issues
+- [x] Vercel deployment guide
+- [x] Environment variables setup
+- [x] Tina CMS Cloud setup
+- [x] Custom domain setup
+- [x] Post-deployment testing checklist
 
 ## Location
-Could be part of README or separate MAINTENANCE.md file.
+Created as `DEPLOYMENT.md` in project root.
