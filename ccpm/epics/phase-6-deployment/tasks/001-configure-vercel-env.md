@@ -1,6 +1,6 @@
 ---
 title: Configure Vercel environment variables
-status: pending
+status: done
 priority: high
 epic: phase-6-deployment
 created: 2025-01-09

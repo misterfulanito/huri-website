@@ -4,7 +4,7 @@ A Wikipedia-style portfolio website showcasing professional work, experience, an
 
 ## Live Demo
 
-🌐 [View Live Site](https://huri-website.vercel.app) *(deploy in progress)*
+🌐 **[View Live Site](https://huri-website.vercel.app)**
 
 ## Features
 
