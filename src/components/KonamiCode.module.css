@@ -12,11 +12,12 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  border: 2px solid #7db4ff;
+  /* Use dark theme for gaming aesthetic - works in both modes */
+  background: linear-gradient(135deg, var(--konami-bg-start, #1a1a2e) 0%, var(--konami-bg-end, #16213e) 100%);
+  border: 2px solid var(--color-link);
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(125, 180, 255, 0.3),
-    0 0 40px rgba(125, 180, 255, 0.1);
+  box-shadow: 0 4px 20px var(--color-focus-ring),
+    0 0 40px var(--color-focus-ring);
 }
 
 .icon {
@@ -31,7 +32,7 @@
 }
 
 .title {
-  color: #7db4ff;
+  color: var(--color-link);
   font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 700;
@@ -40,9 +41,14 @@
 }
 
 .subtitle {
-  color: #b8bcc2;
+  color: var(--color-text-secondary);
   font-family: var(--font-sans);
   font-size: 0.875rem;
+}
+
+/* Force light text on dark background for notification */
+[data-theme='light'] .subtitle {
+  color: #b8bcc2;
 }
 
 @keyframes slideDown {
@@ -72,6 +78,18 @@
   }
   to {
     transform: translateY(-4px);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .notification {
+    animation: none;
+    opacity: 1;
+  }
+
+  .icon {
+    animation: none;
   }
 }
 

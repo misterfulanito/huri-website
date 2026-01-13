@@ -62,7 +62,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
         role="button"
         aria-label="Close navigation menu"
         tabIndex={0}
-        onKeyDown={e => e.key === 'Enter' && onClose()}
+        onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onClose())}
       />
       <nav className={styles.mobileNav}>
         <div className={styles.header}>
