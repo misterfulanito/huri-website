@@ -20,9 +20,224 @@
   margin-bottom: 1rem;
 }
 
+.loading {
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+}
+
+.timelineWrapper {
+  margin-top: 2rem;
+}
+
+/* ========================================
+   React Chrono Custom Styling
+   Matching the custom Timeline UI design
+   ======================================== */
+
+/* Main timeline container */
+.timelineWrapper :global(.timeline-main-wrapper) {
+  padding: 0 !important;
+}
+
+/* Timeline vertical line */
+.timelineWrapper :global(.timeline-vertical-line) {
+  background: linear-gradient(
+    to bottom,
+    var(--color-link) 0%,
+    var(--color-link) 50%,
+    var(--color-divider) 100%
+  ) !important;
+  width: 3px !important;
+}
+
+/* Timeline point (node/circle) */
+.timelineWrapper :global(.timeline-circle) {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  background-color: var(--color-background) !important;
+  border: 3px solid var(--color-border) !important;
+  transition: all 0.2s ease !important;
+}
+
+.timelineWrapper :global(.timeline-circle:hover) {
+  border-color: var(--color-link) !important;
+  transform: scale(1.1) !important;
+}
+
+.timelineWrapper :global(.timeline-circle.active) {
+  background-color: var(--color-link) !important;
+  border-color: var(--color-link) !important;
+}
+
+/* Timeline title (period/date) */
+.timelineTitle {
+  font-family: var(--font-sans) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  color: var(--color-link) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Card container */
+.timelineWrapper :global(.timeline-card-content) {
+  background-color: var(--color-infobox-bg) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 4px !important;
+  padding: 1.25rem !important;
+  transition: all 0.25s ease !important;
+  box-shadow: none !important;
+}
+
+.timelineWrapper :global(.timeline-card-content:hover) {
+  border-color: var(--color-link) !important;
+  box-shadow: 0 4px 12px var(--color-shadow) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Card title (job position) */
+.cardTitle {
+  font-family: var(--font-serif) !important;
+  font-size: var(--font-size-h3) !important;
+  font-weight: var(--font-weight-normal) !important;
+  color: var(--color-text-primary) !important;
+  margin: 0 0 0.25rem 0 !important;
+  line-height: 1.35 !important;
+}
+
+/* Card subtitle (company + location) */
+.cardSubTitle {
+  font-family: var(--font-sans) !important;
+  font-size: 0.9375rem !important;
+  color: var(--color-text-secondary) !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+}
+
+/* Card text/details */
+.cardText {
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-body) !important;
+  line-height: var(--base-line-height) !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* Custom card content */
+.customCard {
+  padding-top: 0.5rem;
+}
+
+/* Responsibilities list */
+.responsibilities {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 1rem 0 !important;
+}
+
+.responsibilities li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.625rem;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--base-line-height);
+  color: var(--color-text-primary);
+}
+
+.responsibilities li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.625rem;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-link);
+  border-radius: 50%;
+}
+
+.responsibilities li:last-child {
+  margin-bottom: 0;
+}
+
+/* Technology tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-divider);
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background-color: var(--color-hover);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+}
+
+/* Read more button styling */
+.timelineWrapper :global(.show-more) {
+  color: var(--color-link) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 0.5rem 0 !important;
+  transition: color 0.2s ease !important;
+}
+
+.timelineWrapper :global(.show-more:hover) {
+  text-decoration: underline !important;
+}
+
+/* Hide default card detailed text since we use custom content */
+.timelineWrapper :global(.card-description) {
+  display: none !important;
+}
+
+/* Vertical item spacing */
+.timelineWrapper :global(.vertical-item-row) {
+  margin-bottom: 2rem !important;
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .section {
     padding-top: 1rem;
+  }
+
+  .timelineWrapper :global(.timeline-card-content) {
+    padding: 1rem !important;
+  }
+
+  .cardTitle {
+    font-size: calc(var(--font-size-h3) * 0.9) !important;
+  }
+
+  .timelineWrapper :global(.vertical-item-row) {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .timelineWrapper :global(.timeline-card-content),
+  .timelineWrapper :global(.timeline-circle) {
+    transition: none !important;
+  }
+
+  .timelineWrapper :global(.timeline-card-content:hover) {
+    transform: none !important;
   }
 }
